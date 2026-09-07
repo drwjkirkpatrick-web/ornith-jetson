@@ -1,0 +1,169 @@
+{
+  "version": "1.0.0",
+  "created": "2026-09-06",
+  "description": "12 test prompts for Ornith-1.0-9B IQ3_M evaluation on Jetson Orin Nano 8GB — adapted from jetson-model-zoo",
+  "prompts": [
+    {
+      "id": "html_profiles",
+      "category": "html",
+      "name": "HTML Profile Cards Page",
+      "prompt": "Create a complete HTML page with CSS that displays 3 profile cards side by side. Each card should have a circular avatar placeholder, a name, a job title, and a short bio. Use flexbox for layout. Include hover effects on the cards. Make it responsive so cards stack vertically on mobile. Return only the HTML file.",
+      "scoring_rubric": {
+        "10": "Complete, responsive, hover effects, clean CSS, valid HTML, visually appealing",
+        "7-8": "Complete HTML with most features, minor CSS issues",
+        "5-6": "Basic HTML, missing responsiveness or hover, functional but rough",
+        "3-4": "Incomplete or broken layout, missing major features",
+        "1-2": "Not HTML or completely wrong"
+      }
+    },
+    {
+      "id": "html_game",
+      "category": "html",
+      "name": "HTML Web Browser Game",
+      "prompt": "Create a single HTML file with JavaScript for a simple click-the-target game. A colored circle appears at random positions on a canvas. The player clicks it to score points. Show the score, a 30-second timer, and a game over screen with final score. Include a start button. Return only the HTML file.",
+      "scoring_rubric": {
+        "10": "Working game with all features: random targets, scoring, timer, game over, start button",
+        "7-8": "Mostly working game, minor bugs",
+        "5-6": "Partial game, missing timer or score tracking",
+        "3-4": "Broken JavaScript, game doesn't function",
+        "1-2": "Not a game or completely wrong"
+      }
+    },
+    {
+      "id": "python_code",
+      "category": "python",
+      "name": "Python Data Processing",
+      "prompt": "Write a Python function called process_grades that takes a list of dictionaries, where each dict has 'name' and 'score' keys. The function should: 1) Calculate the average score, 2) Find the highest and lowest scorers, 3) Return a summary dict with avg_score, top_student, and bottom_student. Include type hints and a docstring. Include a test example.",
+      "scoring_rubric": {
+        "10": "Correct logic, type hints, docstring, test example, handles edge cases, clean code",
+        "7-8": "Correct logic, missing type hints or docstring or edge case handling",
+        "5-6": "Works for basic case, minor logic errors or missing test",
+        "3-4": "Broken logic, won't run correctly",
+        "1-2": "Not Python or completely wrong"
+      }
+    },
+    {
+      "id": "iambic_pentameter",
+      "category": "poetry",
+      "name": "Iambic Pentameter Poem",
+      "prompt": "Write a 6-line poem in strict iambic pentameter about a lighthouse keeper watching a storm. Each line must have exactly 10 syllables with the da-DUM da-DUM da-DUM da-DUM da-DUM rhythm. Do not add extra commentary. Return only the poem.",
+      "scoring_rubric": {
+        "10": "Exactly 6 lines, perfect iambic pentameter (10 syllables, correct stress), evocative imagery",
+        "7-8": "6 lines, mostly correct meter, 1-2 syllable count errors",
+        "5-6": "6 lines but meter is inconsistent, or wrong syllable count on multiple lines",
+        "3-4": "Wrong line count, mostly wrong meter",
+        "1-2": "Not a poem or completely ignores meter requirement"
+      }
+    },
+    {
+      "id": "math_proof",
+      "category": "math",
+      "name": "Mathematical Proof",
+      "prompt": "Prove that the sum of the first n natural numbers equals n(n+1)/2. Use mathematical induction. Show the base case, the inductive hypothesis, and the inductive step clearly. Return only the proof.",
+      "scoring_rubric": {
+        "10": "Correct base case, correct inductive hypothesis, correct inductive step, clear notation",
+        "7-8": "Correct proof, minor notation or clarity issues",
+        "5-6": "Mostly correct, one step unclear or slightly wrong",
+        "3-4": "Incorrect proof, major logical errors",
+        "1-2": "Not a proof or completely wrong"
+      }
+    },
+    {
+      "id": "creative_writing",
+      "category": "creative",
+      "name": "Creative Writing - Short Story",
+      "prompt": "Write a 200-word short story about a musician who discovers their old guitar can play memories. The story should have a clear beginning, middle, and end. Use vivid sensory details. Return only the story.",
+      "scoring_rubric": {
+        "10": "Compelling narrative arc, vivid sensory details, ~200 words, creative premise well-executed",
+        "7-8": "Good story, slightly over/under word count, decent sensory detail",
+        "5-6": "Basic story, weak narrative arc, far from word count",
+        "3-4": "Barely a story, no narrative structure",
+        "1-2": "Not a story or completely off-topic"
+      }
+    },
+    {
+      "id": "func_web_search",
+      "category": "function_call",
+      "name": "Function Call: Web Search",
+      "prompt": "I need to find recent news about renewable energy breakthroughs. Search the web for the latest developments in solar and wind technology from this month.",
+      "expected_tool": "web_search",
+      "scoring_rubric": {
+        "10": "Calls web_search with a well-formed query about renewable energy breakthroughs",
+        "7-8": "Attempts web_search but query could be better",
+        "5-6": "Mentions searching but doesn't properly call the tool",
+        "3-4": "Answers from training data, doesn't attempt tool use",
+        "1-2": "Completely off-topic or refuses"
+      }
+    },
+    {
+      "id": "func_terminal",
+      "category": "function_call",
+      "name": "Function Call: Terminal Command",
+      "prompt": "Check the disk usage on my system and tell me how much free space is left on the root partition.",
+      "expected_tool": "terminal",
+      "scoring_rubric": {
+        "10": "Calls terminal with 'df -h' or equivalent to check disk usage",
+        "7-8": "Attempts terminal command but slightly wrong syntax",
+        "5-6": "Mentions checking disk but doesn't call terminal",
+        "3-4": "Gives generic answer without running anything",
+        "1-2": "Completely off-topic or refuses"
+      }
+    },
+    {
+      "id": "func_write_file",
+      "category": "function_call",
+      "name": "Function Call: Write File",
+      "prompt": "Create a file called todo.txt in my home directory with these items: 1. Buy groceries 2. Call dentist 3. Fix the sink. Save it to ~/todo.txt.",
+      "expected_tool": "write_file",
+      "scoring_rubric": {
+        "10": "Calls write_file with correct path and all 3 todo items",
+        "7-8": "Attempts write_file but path or content slightly off",
+        "5-6": "Mentions creating file but doesn't call write_file",
+        "3-4": "Gives instructions without actually writing",
+        "1-2": "Completely off-topic or refuses"
+      }
+    },
+    {
+      "id": "func_read_file",
+      "category": "function_call",
+      "name": "Function Call: Read File",
+      "prompt": "Read the contents of /etc/hostname and tell me what it says.",
+      "expected_tool": "read_file",
+      "scoring_rubric": {
+        "10": "Calls read_file or terminal with 'cat /etc/hostname'",
+        "7-8": "Attempts to read but wrong tool or path",
+        "5-6": "Mentions reading but doesn't call a tool",
+        "3-4": "Guesses the hostname without reading",
+        "1-2": "Completely off-topic or refuses"
+      }
+    },
+    {
+      "id": "func_sqlite",
+      "category": "function_call",
+      "name": "Function Call: SQLite Query",
+      "prompt": "Query the database at clinic.db for all patients seen in the last 30 days. Show me their names and visit dates.",
+      "expected_tool": "terminal",
+      "scoring_rubric": {
+        "10": "Constructs and runs a proper SQLite query with date filtering",
+        "7-8": "Attempts SQLite query but syntax or date logic slightly off",
+        "5-6": "Mentions SQL but doesn't execute it",
+        "3-4": "Gives generic advice without querying",
+        "1-2": "Completely off-topic or refuses"
+      }
+    },
+    {
+      "id": "func_email",
+      "category": "function_call",
+      "name": "Function Call: Email Draft",
+      "prompt": "Draft an email to my colleague Sarah about rescheduling our Thursday meeting to Monday at 2pm. The email should be professional and brief.",
+      "expected_tool": "none",
+      "scoring_rubric": {
+        "10": "Well-structured email with subject line, greeting, body, sign-off. Professional tone, brief, clear about reschedule",
+        "7-8": "Good email, missing subject line or slightly verbose",
+        "5-6": "Basic email, missing structure or tone issues",
+        "3-4": "Barely an email, no structure",
+        "1-2": "Not an email or completely off-topic"
+      }
+    }
+  ]
+}

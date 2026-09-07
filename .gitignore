@@ -1,0 +1,8 @@
+# Orin Nano
+*.gguf
+models/
+results/
+__pycache__/
+*.pyc
+.env
+*.log
